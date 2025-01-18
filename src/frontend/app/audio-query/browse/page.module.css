@@ -1,0 +1,107 @@
+.container {
+    min-height: 100vh;
+    background-color: #303038;
+    color: #FCEFF9;
+    font-family: var(--font-sans);
+    padding: 4rem 2rem;
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #FCEFF9;
+    font-weight: 800;
+  }
+  
+  .subtitle {
+    color: #FCEFF9;
+    margin-bottom: 4rem;
+    font-size: 1.25rem;
+    opacity: 0.8;
+  }
+  
+  .dropzone {
+    background-color: #242429;
+    border: 2px dashed #404040;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .dropzone.dragging {
+    border-color: #79B4A9;
+    background-color: rgba(121, 180, 169, 0.1);
+  }
+  
+  .dropzoneText {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #FCEFF9;
+  }
+  
+  .browseButton {
+    background-color: #79B4A9;
+    color: #FCEFF9;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 2rem;
+  }
+  
+  .browseButton:hover {
+    background-color: #6AA399;
+  }
+  
+  .selectedFile {
+    font-size: 1.25rem;
+    color: #79B4A9;
+    margin: 1rem 0;
+  }
+  
+  .acceptedFiles {
+    color: #FCEFF9;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  .uploadButton {
+    background-color: #79B4A9;
+    color: #FCEFF9;
+    border: none;
+    padding: 1rem 4rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 2rem;
+  }
+  
+  .uploadButton:hover {
+    background-color: #6AA399;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 2rem 1rem;
+    }
+  
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .dropzoneText {
+      font-size: 1.25rem;
+    }
+  }
+  

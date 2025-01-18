@@ -1,0 +1,176 @@
+.container {
+  min-height: 100vh;
+  background-color: #303038;
+  color: #FCEFF9;
+  font-family: var(--font-sans);
+}
+
+.header {
+  background-color: #242429;
+  padding: 1rem 2rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FCEFF9;
+}
+
+.subtitle {
+  color: #FCEFF9;
+  margin-bottom: 4rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.uploadOptions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.uploadButton {
+  width: 200px;
+  height: 200px;
+  background-color: #242429;
+  border: none;
+  border-radius: 8px;
+  color: #FCEFF9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.uploadButton:hover {
+  background-color: #79B4A9;
+}
+
+.uploadButton.selected {
+  background-color: #79B4A9;
+  color: #242429;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+}
+
+.uploadButton span {
+  font-size: 1.25rem;
+}
+
+.browseContainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.browseButton {
+  background-color: #48484F;
+  color: #FCEFF9;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.browseButton:hover {
+  background-color: #79B4A9;
+}
+
+.selectedFile {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #FCEFF9;
+}
+
+.nextButton {
+  display: inline-block;
+  background-color: #48484F;
+  color: #FCEFF9;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 2rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 2rem;
+}
+
+.nextButton:hover {
+  background-color: #79B4A9;
+}
+
+.recordingControls {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.playButton {
+  background-color: #79B4A9;
+  color: #242429;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.playButton:hover {
+  background-color: #6AA399;
+}
+
+.recordingDuration {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #FCEFF9;
+}
+
+@media (max-width: 640px) {
+  .uploadOptions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .main {
+    padding: 0 1rem;
+  }
+}

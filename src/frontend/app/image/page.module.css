@@ -1,0 +1,129 @@
+.container {
+    min-height: 100vh;
+    background-color: #303038;
+    color: #FCEFF9;
+    font-family: var(--font-sans);
+  }
+  
+  .header {
+    background-color: #242429;
+    padding: 1rem 2rem 2rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #FCEFF9;
+  }
+  
+  .subtitle {
+    color: #FCEFF9;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    opacity: 0.8;
+  }
+  
+  .dropzone {
+    background-color: #242429;
+    border: 2px dashed #404040;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .dropzone:hover {
+    border-color: #505050;
+    background-color: #2a2a2a;
+  }
+  
+  .dropzoneText {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #FCEFF9;
+  }
+  
+  .browseButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #79B4A9;
+    color: #FCEFF9;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 2rem;
+  }
+  
+  .browseButton:hover {
+    background-color: #6AA399;
+  }
+  
+  .plusIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .acceptedFiles {
+    color: #FCEFF9;
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+  }
+  
+  .uploadButton {
+    background-color: #48484F;
+    color: #FCEFF9;
+    border: none;
+    padding: 1.25rem 5rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 2rem;
+  }
+  
+  .uploadButton:hover {
+    background-color: #55555C;
+  }
+  
+  .fileList {
+    margin-top: 2rem;
+    list-style: none;
+    padding: 0;
+    color: #FCEFF9;
+    font-weight: 300;
+  }
+  
+  .fileName {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  

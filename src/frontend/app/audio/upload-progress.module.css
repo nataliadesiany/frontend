@@ -1,0 +1,114 @@
+.container {
+    min-height: 100vh;
+    background-color: #303038;
+    color: #FCEFF9;
+    font-family: var(--font-sans);
+  }
+  
+  .header {
+    background-color: #242429;
+    padding: 0.5rem 0.5rem 0.5rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    color: #FCEFF9;
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .uploadCard {
+    background-color: #242429;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .fileInfo {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+  
+  .fileName {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #FCEFF9;
+  }
+  
+  .fileSize {
+    font-size: 1rem;
+    color: #FCEFF9;
+    opacity: 0.8;
+  }
+  
+  .progressContainer {
+    position: relative;
+    height: 8px;
+    background-color: rgba(252, 239, 249, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progressBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #79B4A9;
+    transition: width 0.3s ease;
+  }
+  
+  .progressText {
+    text-align: center;
+    margin-top: 1rem;
+    color: #FCEFF9;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  
+  .uploadAnotherButton,
+  .nextButton {
+    background-color: #48484F;
+    color: #FCEFF9;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 200px;
+  }
+  
+  .uploadAnotherButton:hover,
+  .nextButton:hover {
+    background-color: #55555C;
+  }
+  
+  

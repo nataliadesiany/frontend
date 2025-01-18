@@ -1,0 +1,118 @@
+.container {
+  min-height: 100vh;
+  background-color: #303038;
+  color: #FCEFF9;
+  font-family: var(--font-sans);
+}
+
+.header {
+  background-color: #242429;
+  padding: 1rem 2rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #FCEFF9;
+  margin-bottom: 4rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.uploadOptions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.uploadButton {
+  width: 200px;
+  height: 200px;
+  background-color: #242429;
+  border: none;
+  border-radius: 8px;
+  color: #FCEFF9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: background-color 0.2s;
+}
+
+.uploadButton:hover {
+  background-color: #2a2a2a;
+}
+
+.uploadButton span {
+  font-size: 1.25rem;
+}
+
+.nextButton {
+  display: inline-block;
+  background-color: #48484F;
+  color: #FCEFF9;
+  text-decoration: none;
+  padding: 1rem 4rem;
+  border-radius: 2rem;
+  transition: background-color 0.2s;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nextButton:hover {
+  background-color: #55555C;
+}
+
+.uploadButton svg {
+  width: 64px;
+  height: 64px;
+}
+
+@media (max-width: 640px) {
+  .uploadOptions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .main {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,110 @@
+.container {
+    min-height: 100vh;
+    background-color: #303038;
+    color: #FCEFF9;
+    font-family: var(--font-sans);
+  }
+  
+  .header {
+    background-color: #242429;
+    padding: 1rem 2rem 2rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .main {
+    max-width: 800px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #FCEFF9;
+  }
+  
+  .card {
+    background-color: #242429;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .status {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: #FCEFF9;
+    font-size: 1.1rem;
+  }
+  
+  .progressContainer {
+    position: relative;
+    height: 8px;
+    background-color: rgba(252, 239, 249, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progressBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #79B4A9;
+    transition: width 0.3s ease;
+  }
+  
+  .progressText {
+    text-align: right;
+    margin-top: 0.5rem;
+    color: #FCEFF9;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .showButton {
+    background-color: #48484F;
+    color: #FCEFF9;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 2rem;
+  }
+  
+  .showButton:hover {
+    background-color: #79B4A9;
+  }
+  
+  @media (max-width: 640px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .heading {
+      font-size: 1.75rem;
+    }
+  
+    .card {
+      padding: 1.5rem;
+    }
+  }
+  
