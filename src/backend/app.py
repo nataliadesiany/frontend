@@ -42,7 +42,7 @@ def upload_dataset():
         file.save(file_path)
 
         if filename.endswith(('.png', '.jpg', '.jpeg')):
-            dataset_images.append(process_image(file_path))
+            dataset_images.append({'filename': filename, 'image': process_image(file_path)})
         elif filename.endswith(('.wav', '.mid')):
             dataset_audio.append({'path': file_path, 'name': filename})
         elif filename.endswith('.json'):
@@ -65,23 +65,22 @@ def query_image():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
-        # Proses query image
+        # Process query image
         query_image_vector = process_image(file_path).reshape(1, -1)
 
-        # Hitung PCA
-        images_matrix = np.array(dataset_images)
+        # PCA
+        images_matrix = np.array([image['image'] for image in dataset_images])
         mean_vector = np.mean(images_matrix, axis=0)
         pca_data, eigenvectors, _ = pca_using_svd(images_matrix, component=50)
 
-        # Validasi dimensi query image
         if query_image_vector.shape[1] != mean_vector.shape[0]:
             return jsonify({'Error': 'Query image dimensions do not match dataset'}), 400
 
-        # Proyeksikan query image
+        # Project query image
         centered_query = query_image_vector - mean_vector
         query_projection = np.dot(centered_query, eigenvectors)
 
-        # Hitung jarak
+        # Compute distances
         distances = [
             (idx, float(np.sqrt(np.sum((query_projection - db_projection.reshape(1, -1)) ** 2))))
             for idx, db_projection in enumerate(pca_data)
@@ -91,7 +90,7 @@ def query_image():
         max_distance = max(dist for _, dist in distances)
 
         filtered_results = [
-            {'index': int(idx), 'similarity': (1 - (float(dist) - min_distance) / (max_distance - min_distance)) * 100}
+            {'index': int(idx), 'similarity': (1 - (float(dist) - min_distance) / (max_distance - min_distance)) * 100, 'filename': dataset_images[idx]['filename']}
             for idx, dist in distances
         ]
 
@@ -99,8 +98,6 @@ def query_image():
         return jsonify({'results': filtered_results, 'execution_time_ms': f"{execution_time_ms:.2f}"}), 200
     else:
         return jsonify({'error': 'Invalid file type'}), 400
-
-
 
 @app.route('/query/audio', methods=['POST'])
 def query_audio():
@@ -114,19 +111,17 @@ def query_audio():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
-        # Proses audio untuk ekstraksi fitur
+        # Process audio to extract features
         query_pitches = process_audio(file_path)
         if query_pitches is None or query_pitches.size == 0:
             return jsonify({'error': 'No valid pitches found in the query file.'}), 400
-
-        print("Query Pitches:", query_pitches)  # Cek output process_audio
 
         try:
             calculate_atb, calculate_rtb, calculate_ftb = tone_distribution()
         except Exception as e:
             return jsonify({'error': f'Error in tone distribution functions: {str(e)}'}), 400
 
-        # Normalisasi dan pengecekan setiap hasil normalisasi
+        # Normalize and check each normalized result
         try:
             query_atb = normalize(calculate_atb(query_pitches))
             query_rtb = normalize(calculate_rtb(query_pitches))
@@ -134,21 +129,15 @@ def query_audio():
         except Exception as e:
             return jsonify({'error': f'Error in normalizing features: {str(e)}'}), 400
 
-        print("Normalized ATB:", query_atb)
-        print("Normalized RTB:", query_rtb)
-        print("Normalized FTB:", query_ftb)
-
-        # Gabungkan fitur
+        # Combine features
         query_features = np.concatenate([query_atb, query_rtb, query_ftb])
 
-        # Ekstraksi fitur dataset audio
+        # Extract audio dataset features
         dataset_features = []
         for audio in dataset_audio:
             pitches = process_audio(audio['path'])
             if pitches is None or pitches.size == 0:
                 continue
-
-            print(f"Pitches for {audio['name']}:", pitches)
 
             try:
                 features = np.concatenate([
@@ -157,12 +146,11 @@ def query_audio():
                     normalize(calculate_ftb(pitches)),
                 ])
             except Exception as e:
-                print(f"Error normalizing features for {audio['name']}: {str(e)}")
                 continue
 
             dataset_features.append(features)
 
-        # Perhitungan cosine similarity
+        # Calculate cosine similarity
         similarities = [
             cosine_similarity(
                 clean_features(query_features).reshape(1, -1),
